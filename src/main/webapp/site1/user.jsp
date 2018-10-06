@@ -2,12 +2,15 @@
 
 <html>
 <body>
-<h2>Hello World!</h2>
+<h2>用户页面</h2>
+
+欢迎你：${email}
 
 今天的天气状况：晴天
 
 
-<a href="${pageContext.request.contextPath}/checkuser">登录</a>
+<a href="${pageContext.request.contextPath}/site1/index.jsp">返回首页</a>
+
 
 </body>
 </html>

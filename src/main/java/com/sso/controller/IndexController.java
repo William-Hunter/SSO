@@ -4,7 +4,6 @@ import com.sso.util.CheckUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
+@RequestMapping(value = "/sso")
 public class IndexController {
 
     @Value("${email}") String email;
@@ -29,8 +29,8 @@ public class IndexController {
                 System.out.println("登录成功，进入"+gotoUrl);
                 return gotoUrl;
             }else{
-                System.out.println("登录成功，进入用户首页");
-                return "/user.jsp";
+                System.out.println("登录成功，但是无法跳转");
+                return "/login.jsp";
             }
         }else{
             System.out.println("登录失败，进入错误页面");
@@ -39,14 +39,22 @@ public class IndexController {
     }
 
     @RequestMapping(value = "/checkuser")
-    public String checkuser(HttpServletRequest request, HttpServletResponse response){
+    public String checkuser(HttpServletRequest request, HttpServletResponse response,Integer site){
         if(CheckUtil.checkCookie(request)){
             System.out.println("cookie验证成功，进入用户界面");
-            return "/user.jsp";
+            switch (site){
+                case 1:
+                    return "/site1/user.jsp";
+                case 2:
+                    return "/site2/user.jsp";
+                default:break;
+            }
         }else{
             System.out.println("cookie验证失败，进入登录界面");
+            request.setAttribute("gotoUrl","/site"+site+"/user.jsp");
             return "/login.jsp";
         }
+        return "/index.jsp";
     }
 
 

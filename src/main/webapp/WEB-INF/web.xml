@@ -7,7 +7,7 @@
 
   <!--welcome pages-->
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>/site1/index.jsp</welcome-file>
   </welcome-file-list>
 
   <!--配置springmvc DispatcherServlet，前端控制器-->

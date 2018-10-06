@@ -14,11 +14,11 @@
 
 <div class="container-fluid">
     <div class="row">
-        <a href="${pageContext.request.contextPath}/index.jsp">返回首页</a>
+        <a href=""></a>
         <div class="col-md-2 ">
         </div>
         <div class="col-md-6">
-            <form action="${pageContext.request.contextPath}/login" >
+            <form action="${pageContext.request.contextPath}/sso/login" >
                 <div class="form-group">
                     <label for="Email">Email address</label>
                     <input type="email" class="form-control" id="Email" name="email" placeholder="Email">
