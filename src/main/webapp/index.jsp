@@ -4,8 +4,10 @@
 <body>
 <h2>Hello World!</h2>
 
-${email}
+今天的天气状况：晴天
 
-<a href="${pageContext.request.contextPath}/login.jsp">login</a>
+
+<a href="${pageContext.request.contextPath}/checkuser">登录</a>
+
 </body>
 </html>

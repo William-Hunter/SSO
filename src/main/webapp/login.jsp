@@ -14,10 +14,11 @@
 
 <div class="container-fluid">
     <div class="row">
+        <a href="${pageContext.request.contextPath}/index.jsp">返回首页</a>
         <div class="col-md-2 ">
         </div>
         <div class="col-md-6">
-            <form action="${pageContext.request.contextPath}/index/login" enctype="multipart/form-data">
+            <form action="${pageContext.request.contextPath}/login" >
                 <div class="form-group">
                     <label for="Email">Email address</label>
                     <input type="email" class="form-control" id="Email" name="email" placeholder="Email">
@@ -26,11 +27,9 @@
                     <label for="Password">Password</label>
                     <input type="password" class="form-control" id="Password" name="password" placeholder="Password">
                 </div>
-
+                <input type="hidden" name="gotoUrl" value="${gotoUrl}">
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
-
-
         </div>
     </div>
 </div>
